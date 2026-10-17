@@ -1,4 +1,5 @@
-from flask import Flask, send_file, jsonify
+
+from flask import Flask, send_file
 import json
 import map
 
@@ -8,20 +9,24 @@ app = Flask(__name__)
 def index():
     return send_file("templates/map.html")
 
+
 m = map.create_map()
 
-markers = []
 with open("cache/caltrans_cameras.json", "r") as f:
     markers = json.load(f)
 
-print(len(markers))
+print(f"Loaded {len(markers)} cameras")
 
-i = 0
-
-for marker in markers:
+for i, marker in enumerate(markers):
     print(i, marker["name"])
-    map.add_marker(m, marker["lat"], marker["lon"], marker["name"])
-    i += 1
+
+    map.add_marker(
+        m,
+        marker["lat"],
+        marker["lon"],
+        marker["name"],
+        marker["url"]
+    )
 
 map.save_map(m)
 
