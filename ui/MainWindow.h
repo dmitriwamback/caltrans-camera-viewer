@@ -18,7 +18,7 @@ public:
     explicit MainWindow(QWidget* parent = nullptr);
 
 private slots:
-    void OpenCameraWindow(const QString& url);
+    void OpenCameraWindow(const QString& url, const QString& title);
 
 protected:
     void closeEvent(QCloseEvent* event) override;

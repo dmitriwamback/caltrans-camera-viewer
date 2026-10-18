@@ -58,23 +58,23 @@ class CameraClick(MacroElement):
     {% macro script(this, kwargs) %}
         {{ this._parent.get_name() }}.on('click', function(e) {
             if (window.qtBridge) {
-                window.qtBridge.OpenCamera(
-                    {{ this.camera_url | tojson }}
-                );
-            } else {
+                window.qtBridge.OpenCamera({{ this.camera_url | tojson }}, {{ this.camera_name | tojson }});
+            } 
+            else {
                 console.error("Qt bridge not connected");
             }
         });
     {% endmacro %}
     """)
 
-    def __init__(self, camera_url):
+    def __init__(self, camera_url, camera_name):
         super().__init__()
         self._name = "CameraClick"
         self.camera_url = camera_url
+        self.camera_name = camera_name
 
 
-def add_marker(m, lat, lon, popup_text, camera_url):
+def add_marker(m, lat, lon, popup_text, camera_url, camera_name):
 
     marker = folium.Marker(
         location=[lat, lon],
@@ -84,7 +84,7 @@ def add_marker(m, lat, lon, popup_text, camera_url):
     )
 
     marker.add_to(m)
-    marker.add_child(CameraClick(camera_url))
+    marker.add_child(CameraClick(camera_url, camera_name))
 
 
 def save_map(m):

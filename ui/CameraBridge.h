@@ -15,10 +15,10 @@ public:
     explicit CameraBridge(QObject* parent = nullptr);
 
 public slots:
-    void OpenCamera(const QString& url);
+    void OpenCamera(const QString& url, const QString& name);
 
 signals:
-    void CameraRequested(const QString& url);
+    void CameraRequested(const QString& url, const QString& name);
 };
 
 

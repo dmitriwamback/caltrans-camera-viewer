@@ -29,9 +29,10 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     setWindowTitle("Caltrans Camera Map");
 }
 
-void MainWindow::OpenCameraWindow(const QString& url) {
+void MainWindow::OpenCameraWindow(const QString& url, const QString& title) {
     auto* camera = new CameraWindow(url);
     camera->setAttribute(Qt::WA_DeleteOnClose);
+    camera->setWindowTitle(title);
     camera->show();
 }
 

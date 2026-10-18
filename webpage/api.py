@@ -25,7 +25,8 @@ for i, marker in enumerate(markers):
         marker["lat"],
         marker["lon"],
         marker["name"],
-        marker["url"]
+        marker["url"],
+        marker["name"]
     )
 
 map.save_map(m)
