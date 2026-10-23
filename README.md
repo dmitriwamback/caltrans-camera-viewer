@@ -1,6 +1,6 @@
 # Caltrans Highway Camera Monitor in Qt
 
-<p><code>caltrans-camera-viewer</code> is a Qt and Flask application that allows the user to view camera feed across highways in California. All data comes directly from a California government site as seen in <code>webpage/caltrans_fetcher.py</code>.</p>
+<p><code>caltrans-camera-viewer</code> is a Qt and Flask application that allows the user to view camera feed across highways in California. All data comes directly from a California government site as seen in <code>webpage/caltrans_fetcher.py</code> (https://cwwp2.dot.ca.gov/data).</p>
 
 ---
 
@@ -43,6 +43,8 @@ Sometimes, cameras can go offline but the program cannot tell. So it is ideal to
 cd webpage
 python3 caltrans_fetcher.py
 ```
+
+This command saves the new commands in the <code>webpage/cache/caltrans_cameras.json</code> file so the script does not have to be run again before running the application.
 
 ---
 
