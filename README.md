@@ -20,6 +20,7 @@ For the flask side:
 * 3. folium
 * 4. jinja2
 * 5. branca
+* 6. ffmpeg
 
 <p></p>
 For the Qt side:
