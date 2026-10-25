@@ -44,7 +44,7 @@ cd webpage
 python3 caltrans_fetcher.py
 ```
 
-This command saves the new commands in the <code>webpage/cache/caltrans_cameras.json</code> file so the script does not have to be run again before running the application.
+This command saves the new found cameras in the <code>webpage/cache/caltrans_cameras.json</code> file so the script does not have to be run again before running the application.
 
 ---
 
